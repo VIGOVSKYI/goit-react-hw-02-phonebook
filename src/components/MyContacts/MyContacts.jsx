@@ -79,7 +79,6 @@ export default class MyContacts extends Component {
   render() {
     const { addContact, deleteContact, handlFilter } = this;
     const contacts = this.getFilteredContacts();
-    const isConacts = Boolean(contacts.length);
     return (
       <div>
         <h3 className={styles.title}>My contacts</h3>
@@ -91,13 +90,8 @@ export default class MyContacts extends Component {
           <div className={styles.block}>
             <h4 className={styles.title}>Contacts</h4>
             <MyContactFilter handlFilter={handlFilter} />
-            {isConacts && (
-              <MyContactList
-                deleteContact={deleteContact}
-                contacts={contacts}
-              />
-            )}
-            {!isConacts && (
+            <MyContactList deleteContact={deleteContact} contacts={contacts} />
+            {!contacts.length && (
               <p className={styles.message}>No contacts in the list</p>
             )}
           </div>
