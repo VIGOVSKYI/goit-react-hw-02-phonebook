@@ -32,7 +32,7 @@ export default class MyContacts extends Component {
   addContact = ({ name, number }) => {
     if (this.isDublicate(name, number)) {
       alert(`${name}. Contact: ${number} is already present`);
-      return false;
+      return;
     }
 
     this.setState(prevState => {
@@ -44,7 +44,7 @@ export default class MyContacts extends Component {
       };
       return { contacts: [newContat, ...contacts] };
     });
-    return true;
+    return;
   };
 
   handlFilter = ({ target }) => {
