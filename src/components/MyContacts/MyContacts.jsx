@@ -9,10 +9,7 @@ import styles from './my-contacts.module.css';
 
 export default class MyContacts extends Component {
   state = {
-    contacts: [
-      { id: nanoid(), name: 'Rosie Simpson', number: '459-12-56' },
-      { id: nanoid(), name: 'Hermione Kline', number: '443-89-12' },
-    ],
+    contacts: [],
     filter: '',
   };
 
@@ -26,7 +23,7 @@ export default class MyContacts extends Component {
         number.toLowerCase() === normalizedAuthor
       );
     });
-    return Boolean(result);
+    return result;
   }
 
   addContact = ({ name, number }) => {
